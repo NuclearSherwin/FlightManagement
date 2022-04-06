@@ -1,0 +1,30 @@
+@model FlightManagement.Models.Flight
+
+@{
+    Layout = "_Layout";
+}
+
+<form asp-action="Update" method="post">
+    <input asp-for="FlightId" hidden/>
+    <div class="form-group">
+        <label asp-for="CustomerId"></label>
+        <input type="text" asp-for="CustomerId">
+        <span class="text-danger" asp-validation-for="CustomerId"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="PlaneId"></label>
+        <input type="text" asp-for="PlaneId">
+        <span class="text-danger" asp-validation-for="PlaneId"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="FlightDate"></label>
+        <input type="text" asp-for="FlightDate" class="form-control">
+        <span class="text-danger" asp-validation-for="FlightDate"></span>
+    </div>
+    <div>        
+        <label asp-for="Destination"></label>
+        <input type="text" asp-for="Destination" class="form-control">
+        <span class="text-danger" asp-validation-for="Destination"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

@@ -1,0 +1,54 @@
+@model List<Flight>
+
+@{
+    Layout = "_Layout";
+}
+
+<a class="btn btn-success" asp-controller="Flights" asp-action="Create">Create New Flight</a>
+
+@* <table> *@
+@*     <tr> *@
+@*         <th>CourseId</th> *@
+@*         <th>Name</th> *@
+@*         <th>action</th> *@
+@*     </tr> *@
+@*     @foreach (var course in Model) *@
+@*     { *@
+@*         <tr> *@
+@*             <td>@course.CourseId</td> *@
+@*             <td>@course.Name</td> *@
+@*             <td></td> *@
+@*         </tr> *@
+@*     } *@
+@*          *@
+@* </table> *@
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th scope="col">Flight Id</th>
+        <th scope="col">Customer Id</th>
+        <th scope="col">Plane Id</th>
+        <th scope="col">Flight Date</th>
+        <td scope="col">Destination</td>
+    </tr>
+    </thead>
+    <tbody>
+     @foreach (var flight in Model)
+     {
+         <tr>
+             <th scope="row">@flight.FlightId</th>
+             <td>@flight.CustomerId</td>
+             <td>@flight.Plane.Name</td>
+             <td>@flight.FlightDate</td>
+             <td>@flight.Destination</td>
+             <td>
+                  <a class="btn btn-warning" 
+                     asp-controller="Flights" asp-action="Update" asp-route-flightId="@flight.FlightId">Update</a>
+                 <a class="btn btn-danger" onClick="return confirm('Are you sure you want to delete this item')"
+                    asp-controller="Flights" asp-action="Delete" asp-route-flightId="@flight.FlightId">Delete</a>
+             </td> 
+         </tr>
+     }
+    </tbody>
+</table>

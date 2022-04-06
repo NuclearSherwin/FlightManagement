@@ -1,0 +1,15 @@
+@model FlightManagement.Models.Customer
+
+@{
+    Layout = "_Layout";
+}
+
+<form asp-action="Update" method="post">
+    <input asp-for="CustomerId" hidden/>
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <input type="text" asp-for="Name" class="form-control">
+        <span class="text-danger" asp-validation-for="Name"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
